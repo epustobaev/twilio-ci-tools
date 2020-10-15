@@ -10,4 +10,7 @@ RUN apt-get update -y && \
     twilio plugins:install @twilio-labs/plugin-serverless && \
     apt-get autoremove -y && \
     apt-get remove libsecret-1-dev -y && \
-    apt-get clean -y
+    apt-get clean -y && \
+    mkdir /srv/twilio && \
+    cp -r /root/.twilio-cli /srv/twilio/ && \
+    chmod -Rv a+rwX /srv/twilio
