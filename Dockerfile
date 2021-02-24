@@ -1,4 +1,4 @@
-FROM node:10.22.1-buster
+FROM node:12.21.0-buster
 
 USER root
 
@@ -12,5 +12,5 @@ RUN apt-get update -y && \
     apt-get remove libsecret-1-dev -y && \
     apt-get clean -y && \
     mkdir /srv/twilio && \
-    cp -r /root/.twilio-cli /srv/twilio/ && \
-    chmod -Rv a+rwX /srv/twilio
+    mv /root/.twilio-cli /srv/twilio/ && \
+    chmod -R a+rwX /srv/twilio
